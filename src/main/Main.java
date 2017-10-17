@@ -13,6 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
@@ -29,25 +32,62 @@ import uiText.TextoveRozhrani;
  */
 public class Main extends Application {
 
+    private TextArea centralText;
+    private IHra hra;
+    private TextField zadejPrikazTextField;
+    
     @Override
     public void start(Stage primaryStage) {
-        IHra hra = new Hra();
+        hra = new Hra();
         BorderPane borderPane = new BorderPane();
         
-        
-        Text centralText = new Text();
+        /* Centrální text s průběhem hry je ve formátu text are a není editovatelný - nejde mazat. */
+        centralText = new TextArea();
         centralText.setText(hra.vratUvitani());
+        centralText.setEditable(false);
         borderPane.setCenter(centralText);
         
-        Label zadejPrikaz = new Label("Zadej prikaz: ");
-        zadejPrikaz.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        /* Label s textem Zadej příkaz */
+        Label zadejPrikazLabel = new Label("Zadej prikaz: ");
+        zadejPrikazLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         
+        // Zadání příkazu
+        zadejPrikazTextField = new TextField("...");
+        zadejPrikazTextField.setOnAction(new EventHandler<ActionEvent>(){
+           
+            @Override
+            public void handle(ActionEvent event){
+        
+            String vstupniPrikaz = zadejPrikazTextField.getText();
+            String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
+            
+            centralText.appendText("\n" + vstupniPrikaz);
+            centralText.appendText("\n" + odpovedHry + "\n");
+            
+            if (hra.konecHry()){
+                zadejPrikazTextField.setEditable(false);
+                centralText.appendText(hra.vratEpilog());
+            }
+            }
+        });
+        
+        // Obrázek s mapou
+        FlowPane obrazekFlowPane = new FlowPane();
+        obrazekFlowPane.setPrefSize(200, 100);
+        ImageView obrazekImageView = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/mapa.jpg"), 200, 100, false, true));
+        obrazekFlowPane.setAlignment(Pos.CENTER);
+        obrazekFlowPane.getChildren().add(obrazekImageView);
+        
+        
+        /* Co všechno se nachází v dolní liště. */
         FlowPane dolniLista = new FlowPane();
         dolniLista.setAlignment(Pos.CENTER);
-        dolniLista.getChildren().add(zadejPrikaz);
+        dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextField);
+        
+        borderPane.setLeft(obrazekFlowPane);
         borderPane.setBottom(dolniLista);
         
-        Scene scene = new Scene(borderPane, 300, 250);
+        Scene scene = new Scene(borderPane, 750, 450);
 
         primaryStage.setTitle("Adventura");
 
