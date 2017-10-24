@@ -42,13 +42,13 @@ public class HerniPlan {
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory:
-        Prostor temnaMistnost = new Prostor("temná_místnost","temná, vlhká místnost");
-        poklop = new Prostor(VITEZNY, "poklop, ze kterého vede cesta ven");
-        Prostor chodba = new Prostor("chodba","úzká, dlouhá chodba");
-        vezeni = new Prostor("vězení","vězení plné krys");
-        Prostor kumbal = new Prostor("kumbál","malý kumbál, jež skrývá poklady");
-        Prostor zlataMistnost = new Prostor("zlatá_místnost","místnost vyložená zlatem, kde potkáš kouzelnou osobu");
-        Prostor psiDoupe = new Prostor("psí_doupě","doupě, ve kterém přebývá rozzuřený krvelačný pes");
+        Prostor temnaMistnost = new Prostor("temná_místnost","temná, vlhká místnost", 110, 50);
+        poklop = new Prostor(VITEZNY, "poklop, ze kterého vede cesta ven", 20, 40);
+        Prostor chodba = new Prostor("chodba","úzká, dlouhá chodba", 60, 50);
+        vezeni = new Prostor("vězení","vězení plné krys", 160, 30);
+        Prostor kumbal = new Prostor("kumbál","malý kumbál, jež skrývá poklady", 100, 30);
+        Prostor zlataMistnost = new Prostor("zlatá_místnost","místnost vyložená zlatem, kde potkáš kouzelnou osobu", 80, 60);
+        Prostor psiDoupe = new Prostor("psí_doupě","doupě, ve kterém přebývá rozzuřený krvelačný pes", 60, 100);
 
         // přiřazují se průchody mezi prostory (sousedící prostory):
         temnaMistnost.setVychod(chodba);
