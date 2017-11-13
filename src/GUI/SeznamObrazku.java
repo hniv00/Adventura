@@ -5,9 +5,11 @@
  */
 package GUI;
 
-import java.awt.GridLayout;
-import javax.swing.BorderFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.TilePane;
+import logika.HerniPlan;
 import logika.IHra;
+import logika.Kapsa;
 import utils.Observer;
 
 /**
@@ -17,20 +19,29 @@ import utils.Observer;
 public class SeznamObrazku implements Observer {
     
     private IHra hra;
-    private JPanel obsahKapes;
-    private JPanel panelSObrazkem;
+    // private ImageView obsahKapes;
+    // private TilePane panelSObrazkem;
+    private TilePane seznamObrazku;
+    private Kapsa kapsa;
+    private HerniPlan herniPlan;
     
     public SeznamObrazku(IHra hra) {
         this.hra = hra;
+        this.kapsa = kapsa;
+        this.herniPlan = herniPlan;
         hra.getHerniPlan().registerObserver(this);
+        herniPlan.getKapsa().registerObserver(this);
         init();
     }
     
     private void init(){
         
-        obsahKapes = new JPanel(new GridLayout(2,1));
-        panelSObrazkem.add(obsahKapes);
-        obsahKapes.setBorder(BorderFactory.createTitledBorder("Obsah kapes"));
+        TilePane seznamObrazku = new TilePane();
+        seznamObrazku.setHgap(8);
+        seznamObrazku.setPrefColumns(4);
+        for (int i = 0; i < 20; i++) {
+            seznamObrazku.getChildren().add(new ImageView(...obsahKapes));
+        }
         
     }
     
@@ -43,7 +54,7 @@ public class SeznamObrazku implements Observer {
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }

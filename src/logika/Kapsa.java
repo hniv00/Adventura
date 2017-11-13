@@ -1,6 +1,9 @@
 package logika;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import utils.Observer;
 
 /*******************************************************************************
  * Třída Kapsa představuje inventář s omezenou kapacitou
@@ -14,7 +17,7 @@ public class Kapsa
     //== Datové atributy (statické i instancí)=====================================
     private Map <String, Vec> veci;   // seznam věcí v kapse
     private static final int KAPACITA = 4 ;   // maximální počet věcí v kapse
-
+    
     //== Konstruktory a tovární metody =============================================
 
     /***************************************************************************
@@ -124,4 +127,6 @@ public class Kapsa
         }
         return obsah;
     }
+    
+    
 }
