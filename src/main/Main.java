@@ -7,6 +7,7 @@ package main;
 
 import GUI.Mapa;
 import GUI.MenuLista;
+import GUI.SeznamObrazku;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -46,6 +47,8 @@ public class Main extends Application {
     private Mapa mapa;
     private MenuLista menuLista;
     
+    private SeznamObrazku seznamObrazku; // přidání věci
+    
     private Stage stage;
     
     @Override
@@ -56,6 +59,7 @@ public class Main extends Application {
         
         mapa = new Mapa(hra);
         menuLista = new MenuLista(hra, this);
+        seznamObrazku = new SeznamObrazku(hra); //seznamObrazku 
         
         BorderPane borderPane = new BorderPane();
         
@@ -100,6 +104,8 @@ public class Main extends Application {
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
         
+        borderPane.setRight(seznamObrazku); //věci napravo
+        
         Scene scene = new Scene(borderPane, 750, 450);
         primaryStage.setTitle("Adventura");
 
@@ -115,6 +121,10 @@ public class Main extends Application {
     public Mapa getMapa() {
         return mapa;
     }
+    
+    public SeznamObrazku getSeznamObrazku() {
+        return seznamObrazku;
+    }    
     
     /**
      * @param args the command line arguments

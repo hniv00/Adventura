@@ -46,13 +46,13 @@ public class HerniPlan implements Subject{
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory:
-        Prostor temnaMistnost = new Prostor("temná_místnost","temná, vlhká místnost", 110, 50);
-        poklop = new Prostor(VITEZNY, "poklop, ze kterého vede cesta ven", 20, 40);
-        Prostor chodba = new Prostor("chodba","úzká, dlouhá chodba", 60, 50);
-        vezeni = new Prostor("vězení","vězení plné krys", 160, 30);
-        Prostor kumbal = new Prostor("kumbál","malý kumbál, jež skrývá poklady", 100, 30);
-        Prostor zlataMistnost = new Prostor("zlatá_místnost","místnost vyložená zlatem, kde potkáš kouzelnou osobu", 80, 60);
-        Prostor psiDoupe = new Prostor("psí_doupě","doupě, ve kterém přebývá rozzuřený krvelačný pes", 60, 100);
+        Prostor temnaMistnost = new Prostor("temná_místnost","temná, vlhká místnost", 40, 30);
+        poklop = new Prostor(VITEZNY, "poklop, ze kterého vede cesta ven", 400, 40);
+        Prostor chodba = new Prostor("chodba","úzká, dlouhá chodba", 110, 100);
+        vezeni = new Prostor("vězení","vězení plné krys", 175, 30);
+        Prostor kumbal = new Prostor("kumbál","malý kumbál, jež skrývá poklady", 40, 140);
+        Prostor zlataMistnost = new Prostor("zlatá_místnost","místnost vyložená zlatem, kde potkáš kouzelnou osobu", 175, 160);
+        Prostor psiDoupe = new Prostor("psí_doupě","doupě, ve kterém přebývá rozzuřený krvelačný pes", 300, 160);
 
         // přiřazují se průchody mezi prostory (sousedící prostory):
         temnaMistnost.setVychod(chodba);
@@ -67,16 +67,16 @@ public class HerniPlan implements Subject{
         psiDoupe.setVychod(zlataMistnost);
 
         // založení věcí:
-        Vec sirky = new Vec("sirky", true);
-        Vec pochoden = new Vec("pochodeň", false);
-        Vec horiciPochoden = new Vec("hořící_pochodeň", false);
-        Vec skrin = new Vec("skříň", false);
-        Vec obojek = new Vec("obojek", true);
-        Vec provaz = new Vec("provaz", true);
-        Vec skrpal = new Vec("škrpál", true);
-        Vec drahokamy = new Vec("drahokamy", true);
-        Vec jehla = new Vec("jehla", true);
-        Vec fletna = new Vec("flétna", true);
+        Vec sirky = new Vec("sirky", true, "/zdroje/sirky.png");
+        Vec pochoden = new Vec("pochodeň", false, "/zdroje/pochoden.png");
+        Vec horiciPochoden = new Vec("hořící_pochodeň", false, "/zdroje/horici.png");
+        Vec skrin = new Vec("skříň", false, "/zdroje/skrin.png");
+        Vec obojek = new Vec("obojek", true, "/zdroje/obojek.png");
+        Vec provaz = new Vec("provaz", true, "/zdroje/provaz.png");
+        Vec skrpal = new Vec("škrpál", true, "/zdroje/skrpal.png");
+        Vec drahokamy = new Vec("drahokamy", true, "/zdroje/drahokamy.png");
+        Vec jehla = new Vec("jehla", true, "/zdroje/jehla.png");
+        Vec fletna = new Vec("flétna", true, "/zdroje/fletna.png");
 
         // vkládání věcí do skříně:
         skrin.vlozVec(obojek);

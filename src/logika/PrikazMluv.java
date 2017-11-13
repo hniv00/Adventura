@@ -58,7 +58,7 @@ public class PrikazMluv implements IPrikaz
         }
 
         if(postava.getJmeno().equals("šašek") && plan.jeOchoceny()){
-            aktualni.vlozVec(new Vec("šaškova_čepice", true));
+            aktualni.vlozVec(new Vec("šaškova_čepice", true, "/zdroje/cepice.png"));
             return postava.getProslov3();
         }
 

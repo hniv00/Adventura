@@ -13,6 +13,7 @@ public class Vec
     private String nazev;
     private boolean prenositelnost;
     private boolean prozkoumana = false;
+    private String soubor;
     private Map<String, Vec> veci;
 
     //== Konstruktory a tovární metody =============================================
@@ -22,10 +23,11 @@ public class Vec
      *  název a přenositelnost
      *  pokud je přenositelnost true, lze vložit do kapsy
      */
-    public Vec(String nazev, boolean prenositelnost)
+    public Vec(String nazev, boolean prenositelnost, String soubor)
     {
         this.nazev = nazev;
         this.prenositelnost = prenositelnost;
+        this.soubor = soubor;
         veci = new HashMap<String,Vec>();
     }
 
