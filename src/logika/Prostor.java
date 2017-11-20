@@ -19,7 +19,7 @@ import java.util.HashMap;
  * si prostor ukládá odkaz na sousedící prostor.
  *
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- * @version LS 2015/2016, květen
+ * @version LS 2017/2018
  */
 public class Prostor {
 

@@ -21,18 +21,24 @@ import utils.Observer;
  * @author hniv00
  */
 
-public class PanelBatohu implements Observer
-{
- private HerniPlan plan;
+public class PanelBatohu implements Observer{
+    
+    private HerniPlan plan;
     ListView<Object> list;
     ObservableList<Object> data;
 
+    /*
+    * Konstruktor pro panel kapsy.
+    */
     public PanelBatohu(HerniPlan plan) {
        this.plan = plan;
        plan.registerObserver(this);
         init();
     }
 
+    /*
+    * Metoda vytvoří list pro věci v kapse.
+    */
     private void init() {
         list = new ListView<>();
         data = FXCollections.observableArrayList();
@@ -41,9 +47,16 @@ public class PanelBatohu implements Observer
         update();
     }
     
-     public ListView<Object> getList() {
+    /*
+    * Metoda vrací list.
+    */
+    public ListView<Object> getList() {
         return list;
     }
+    
+    /*
+    * Metoda aktualizuje list věcí v kapse. Zobrazuje obrázky věcí, které má hráč u sebe.
+    */
     @Override 
     public void update() 
     {        

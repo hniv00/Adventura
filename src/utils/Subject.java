@@ -7,7 +7,10 @@ package utils;
 
 /**
  *
- * @author lenovo
+ * @author hniv00
+ * 
+ * Interface. Registrace, odstranění a notifikace observeru.
+ * 
  */
 public interface Subject {
     

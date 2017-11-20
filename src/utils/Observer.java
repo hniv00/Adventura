@@ -7,7 +7,10 @@ package utils;
 
 /**
  *
- * @author lenovo
+ * @author hniv00
+ * 
+ * Interface. Aktualizace observeru.
+ * 
  */
 public interface Observer {
     

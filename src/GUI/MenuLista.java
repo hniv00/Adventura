@@ -23,7 +23,7 @@ import main.Main;
 
 /**
  *
- * @author xzenj02
+ * @author hniv00
  */
 public class MenuLista extends MenuBar{
     
@@ -31,6 +31,9 @@ public class MenuLista extends MenuBar{
     private Main main;
     private Stage stage;
     
+    /*
+    * Konstruktor pro lištu menu.
+    */
     public MenuLista(IHra hra, Main main){
         this.hra = hra;
         this.main = main;
@@ -38,6 +41,10 @@ public class MenuLista extends MenuBar{
         init();
     }
     
+    /*
+    * Metoda pro inicializaci lišty.
+    * Obsahuje Menu záložky Adventura a Help.
+    */
     private void init(){
         
         Menu novySoubor = new Menu("Adventura");
@@ -74,6 +81,9 @@ public class MenuLista extends MenuBar{
             }
         });
 
+        /*
+        * Zobrazí se okénko s informacemi o adventuře.
+        */
         oProgramu.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -108,6 +118,9 @@ public class MenuLista extends MenuBar{
             }
         }); 
         
+        /*
+        * Zobrazí se nápověda v novém okně z HTML souboru.
+        */
         napovedaItem.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -116,13 +129,11 @@ public class MenuLista extends MenuBar{
                 Stage stage = new Stage();
                 stage.setTitle("Nápověda");
                 
-                WebView webView = new WebView();
-                
+                WebView webView = new WebView();               
                 webView.getEngine().load(Main.class.getResource("/zdroje/napoveda.html").toExternalForm());
                 
                 stage.setScene(new Scene(webView, 1200, 650));
                 stage.show();
-
             }
         });
         

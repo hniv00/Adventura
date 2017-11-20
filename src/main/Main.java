@@ -32,7 +32,9 @@ import uiText.TextoveRozhrani;
 
 /**
  *
- * @author xzenj02
+ * @author hniv00
+ * @version LS 2017/2018
+ * 
  */
 public class Main extends Application {
 
@@ -43,18 +45,19 @@ public class Main extends Application {
     private MenuLista menuLista;
     private PanelBatohu panelBatohu;
     
-    
-    
-    // private SeznamObrazku seznamObrazku; // přidání věci
-    
     private Stage stage;
     
-    
+    /*
+    * Metoda pro setnutí hry.
+    */
     public void setHra(IHra hra) 
     {
         this.hra = hra;
     }
     
+    /*
+    * Metoda pro spuštění stage a všech grafických komponent.
+    */
     @Override
     public void start(Stage primaryStage) {
         this.stage = primaryStage;
@@ -80,6 +83,9 @@ public class Main extends Application {
         zadejPrikazTextArea = new TextField("...");
         zadejPrikazTextArea.setOnAction(new EventHandler<ActionEvent>() {
 
+            /*
+            * Zpracování příkazů, odpověď hry, vrácení centrálního textu.
+            */
             @Override
             public void handle(ActionEvent event) {
 
@@ -121,10 +127,16 @@ public class Main extends Application {
         zadejPrikazTextArea.requestFocus();
     }
 
+    /*
+    * Vrácení centrálního textu.
+    */
     public TextArea getCentralText() {
         return centralText;
     }
 
+    /*
+    * Vrácení mapy.
+    */
     public Mapa getMapa() {
         return mapa;
     }  
@@ -150,6 +162,9 @@ public class Main extends Application {
     }
 
     /**
+     * 
+     * Metoda vrací stage.
+     * 
      * @return the stage
      */
     public Stage getStage() {

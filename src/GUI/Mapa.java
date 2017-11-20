@@ -17,19 +17,25 @@ import utils.Observer;
 
 /**
  *
- * @author xzenj02
+ * @author hniv00
  */
 public class Mapa extends AnchorPane implements Observer {
 
     private IHra hra;
     private Circle tecka;
 
+    /*
+    * Konstrukce pro třídu Mapa.
+    */
     public Mapa(IHra hra) {
         this.hra = hra;
         hra.getHerniPlan().registerObserver(this);
         init();
     }
 
+    /*
+    * Metoda init zobrazí mapu a červené kolečko podle toho, kde v prostoru se hráč aktuálně nachází.
+    */
     private void init() {
 
         ImageView obrazekImageView = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/mapa.jpg"), 400, 200, false, true));
@@ -43,6 +49,9 @@ public class Mapa extends AnchorPane implements Observer {
         update();
     }
     
+    /*
+    * Reset mapy při otevření nové hry.
+    */
     public void newGame(IHra novaHra){
         hra.getHerniPlan().removeObserver(this);
         hra = novaHra;
@@ -50,6 +59,9 @@ public class Mapa extends AnchorPane implements Observer {
         update();
     }
 
+    /*
+    * Metoda aktualizuje tečku na mapě.
+    */
     @Override
     public void update() {
         this.setTopAnchor(tecka, hra.getHerniPlan().getAktualniProstor().getPosTop());
