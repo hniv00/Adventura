@@ -6,7 +6,6 @@
 package GUI;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -30,10 +29,12 @@ public class MenuLista extends MenuBar{
     
     private IHra hra;
     private Main main;
+    private Stage stage;
     
     public MenuLista(IHra hra, Main main){
         this.hra = hra;
         this.main = main;
+        this.stage = main.getStage();
         init();
     }
     
@@ -42,7 +43,7 @@ public class MenuLista extends MenuBar{
         Menu novySoubor = new Menu("Adventura");
         Menu napoveda = new Menu("Help");
         
-        MenuItem novaHra = new MenuItem("Nova hra");
+        MenuItem novaHra = new MenuItem("Nová hra");
         //, new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/ikona.png")))
         
         novaHra.setAccelerator(KeyCombination.keyCombination("Ctrl+H"));
@@ -51,7 +52,7 @@ public class MenuLista extends MenuBar{
         novySoubor.getItems().addAll(novaHra, konecHry);
         
         MenuItem oProgramu = new MenuItem("O programu");
-        MenuItem napovedaItem = new MenuItem("Napoveda");
+        MenuItem napovedaItem = new MenuItem("Nápověda");
         
         napoveda.getItems().addAll(oProgramu, napovedaItem);
         
@@ -69,10 +70,7 @@ public class MenuLista extends MenuBar{
 
             @Override
             public void handle(ActionEvent event) {
-                hra = new Hra();
-                main.getMapa().newGame(hra);
-                main.setHra(hra);
-                main.getCentralText().setText(hra.vratUvitani());
+                main.start(stage);
             }
         });
 
@@ -84,8 +82,25 @@ public class MenuLista extends MenuBar{
                 Alert oProgramuAlert = new Alert(Alert.AlertType.INFORMATION);
                 
                 oProgramuAlert.setTitle("O programu");
-                oProgramuAlert.setHeaderText("Super adventura");
-                oProgramuAlert.setContentText("Tady bude text o programu bla, bla.");
+                oProgramuAlert.setHeaderText("Ztracen v katakombách strého hradu");
+                oProgramuAlert.setContentText("Úvod do hry: \n" +
+                                              "Adventure hra začíná úvodem do děje.\n" + 
+                                              "Probudili jste se v podzemí starého hradu.\n" + 
+                                              "Nacházíte se v téměř prázdné místnosti. Jste zmatení.\n" + 
+                                              "Vaším úkolem je porozhlédnout se po okolí,\n" + 
+                                              "zda nenajdete cestu ven.\n" +
+                                              "\n" + 
+                                              "Cíl hry: \n" +
+                                              "Hlavním cílem této hry je dostat se pryč z tajemného\n" + 
+                                              "podzemí hradu. Na způsob, jak toho dosáhnout,\n" + 
+                                              "musí hráč přijít sám.\n" +
+                                              "Máte možnost vcházet do různých prostorů, zkoumat předměty,\n" + 
+                                              "odnést si je s sebou apod.\n" +
+                                              "\n" + 
+                                              "Způsob ovládání hry:\n" +
+                                              "Hra disponuje textovým i grafickým uživatelským rozhraním.\n" +  
+                                              "K ovládání slouží příkazy zapisované ve spodní části.\n" + 
+                                              "Pro zpracování příkazu je nutno stisknout enter.");
                 oProgramuAlert.initOwner(main.getStage());
                 
                 oProgramuAlert.showAndWait();
@@ -99,13 +114,13 @@ public class MenuLista extends MenuBar{
             public void handle(ActionEvent event) {
                 
                 Stage stage = new Stage();
-                stage.setTitle("Napoveda");
+                stage.setTitle("Nápověda");
                 
                 WebView webView = new WebView();
                 
                 webView.getEngine().load(Main.class.getResource("/zdroje/napoveda.html").toExternalForm());
                 
-                stage.setScene(new Scene(webView, 500, 500));
+                stage.setScene(new Scene(webView, 1200, 650));
                 stage.show();
 
             }

@@ -45,6 +45,7 @@ public class PrikazZahod implements IPrikaz
         else {
             kapsa.odeberVec(nazevVeci);
             aktualniProstor.vlozVec(vec);
+            plan.notifyObservers();
             return "Právě jsi zahodil " + nazevVeci + " do tohoto prostoru.";
         }
         // zadaná věc se vyhodí z kapsy do prostoru

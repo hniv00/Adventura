@@ -7,7 +7,7 @@ package main;
 
 import GUI.Mapa;
 import GUI.MenuLista;
-import GUI.SeznamObrazku;
+import GUI.PanelBatohu;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,18 +38,22 @@ public class Main extends Application {
 
     private TextArea centralText;
     private IHra hra;
-
-    public void setHra(IHra hra) {
-        this.hra = hra;
-    }
     private TextField zadejPrikazTextArea;
-    
     private Mapa mapa;
     private MenuLista menuLista;
+    private PanelBatohu panelBatohu;
+    
+    
     
     // private SeznamObrazku seznamObrazku; // přidání věci
     
     private Stage stage;
+    
+    
+    public void setHra(IHra hra) 
+    {
+        this.hra = hra;
+    }
     
     @Override
     public void start(Stage primaryStage) {
@@ -59,7 +63,6 @@ public class Main extends Application {
         
         mapa = new Mapa(hra);
         menuLista = new MenuLista(hra, this);
-        // seznamObrazku = new SeznamObrazku(hra); //seznamObrazku 
         
         BorderPane borderPane = new BorderPane();
         
@@ -70,7 +73,7 @@ public class Main extends Application {
         borderPane.setCenter(centralText);
         
         //label s textem zadej prikaz
-        Label zadejPrikazLabel = new Label("Zadej prikaz: ");
+        Label zadejPrikazLabel = new Label("Zadej příkaz: ");
         zadejPrikazLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         
         // text area do ktere piseme prikazy
@@ -104,9 +107,13 @@ public class Main extends Application {
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
         
-        // borderPane.setRight(seznamObrazku); //věci napravo
         
-        Scene scene = new Scene(borderPane, 750, 450);
+        // panel batohu     
+        panelBatohu = new PanelBatohu(hra.getHerniPlan());
+        borderPane.setRight(panelBatohu.getList());
+       
+        
+        Scene scene = new Scene(borderPane, 1200, 600);
         primaryStage.setTitle("Adventura");
 
         primaryStage.setScene(scene);
@@ -136,7 +143,7 @@ public class Main extends Application {
                 textHra.hraj();
             }
             else{
-                System.out.println("Neplatny parametr");
+                System.out.println("Neplatný parametr");
                 System.exit(1);
             }
         }

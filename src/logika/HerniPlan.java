@@ -13,7 +13,7 @@ import utils.Subject;
  *  a pamatuje si aktuální prostor, ve kterém se hráč právě nachází.
  *
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- *@version    LS 2015/2016, květen
+ *@version    ZS 2017/2018
  */
 public class HerniPlan implements Subject{
     private static final String VITEZNY = "poklop";
@@ -67,16 +67,16 @@ public class HerniPlan implements Subject{
         psiDoupe.setVychod(zlataMistnost);
 
         // založení věcí:
-        Vec sirky = new Vec("sirky", true, "/zdroje/sirky.png");
-        Vec pochoden = new Vec("pochodeň", false, "/zdroje/pochoden.png");
-        Vec horiciPochoden = new Vec("hořící_pochodeň", false, "/zdroje/horici.png");
-        Vec skrin = new Vec("skříň", false, "/zdroje/skrin.png");
-        Vec obojek = new Vec("obojek", true, "/zdroje/obojek.png");
-        Vec provaz = new Vec("provaz", true, "/zdroje/provaz.png");
-        Vec skrpal = new Vec("škrpál", true, "/zdroje/skrpal.png");
-        Vec drahokamy = new Vec("drahokamy", true, "/zdroje/drahokamy.png");
-        Vec jehla = new Vec("jehla", true, "/zdroje/jehla.png");
-        Vec fletna = new Vec("flétna", true, "/zdroje/fletna.png");
+        Vec sirky = new Vec("sirky", true, "sirky.png");
+        Vec pochoden = new Vec("pochodeň", false, "pochoden.png");
+        Vec horiciPochoden = new Vec("hořící_pochodeň", false, "horici.png");
+        Vec skrin = new Vec("skříň", false, "skrin.png");
+        Vec obojek = new Vec("obojek", true, "obojek.png");
+        Vec provaz = new Vec("provaz", true, "provaz.png");
+        Vec skrpal = new Vec("škrpál", true, "skrpal.png");
+        Vec drahokamy = new Vec("drahokamy", true, "drahokamy.png");
+        Vec jehla = new Vec("jehla", true, "jehla.png");
+        Vec fletna = new Vec("flétna", true, "fletna.png");
 
         // vkládání věcí do skříně:
         skrin.vlozVec(obojek);
@@ -214,6 +214,10 @@ public class HerniPlan implements Subject{
         }
     }
 
+    
+     /*
+     *  Override pro registraci, odstranění a notifikaci observeru.
+     */    
     @Override
     public void registerObserver(utils.Observer observer) {
         listObserveru.add(observer);

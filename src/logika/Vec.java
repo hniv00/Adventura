@@ -5,7 +5,7 @@ package logika;
 import java.util.*;
 /*******************************************************************************
  * @author    Veronika Hniličková
- * @version   LS 2015/2016, květen
+ * @version   LS 2017/2018
  */
 public class Vec
 {
@@ -13,8 +13,8 @@ public class Vec
     private String nazev;
     private boolean prenositelnost;
     private boolean prozkoumana = false;
-    private String soubor;
     private Map<String, Vec> veci;
+    private String obrazek;
 
     //== Konstruktory a tovární metody =============================================
 
@@ -23,12 +23,12 @@ public class Vec
      *  název a přenositelnost
      *  pokud je přenositelnost true, lze vložit do kapsy
      */
-    public Vec(String nazev, boolean prenositelnost, String soubor)
+    public Vec(String nazev, boolean prenositelnost,String obrazek)
     {
         this.nazev = nazev;
         this.prenositelnost = prenositelnost;
-        this.soubor = soubor;
         veci = new HashMap<String,Vec>();
+        this.obrazek = obrazek;
     }
 
     //== Nesoukromé metody (instancí i třídy) ======================================
@@ -41,6 +41,12 @@ public class Vec
         return nazev;
     }
 
+     /*
+     *  Metoda vrací obrázek věci.
+     */
+    public String getObrazek() {
+        return obrazek;
+    }
     /**
      * Metoda zjišťuje, zda je věc přenositelná.
      * 

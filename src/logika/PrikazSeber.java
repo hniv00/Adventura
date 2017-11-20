@@ -53,15 +53,18 @@ public class PrikazSeber implements IPrikaz
             if(sbirana.jePrenositelnost()){
                 // věc lze přenést
                 if(kapsa.vlozVec(sbirana)){
+                    plan.notifyObservers();
                     return "Sebral/a jsi " + sbirana.getNazev();
                 }
                 aktualni.vlozVec(sbirana);
+                plan.notifyObservers();
                 return "Kapsy už máš plné. Nejprve se zbav zbytečností.";
                 // pokud se nevejde, musí se vrátit do prostoru
                 // pokud ano, dá věc do kapsy
             }  
             else{
                 aktualni.vlozVec(sbirana);
+                plan.notifyObservers();
                 return "Tohle si odtud vzít nemůžeš.";
                 // věc není přenositelná
             }  

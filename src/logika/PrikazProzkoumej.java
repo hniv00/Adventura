@@ -59,6 +59,7 @@ public class PrikazProzkoumej implements IPrikaz
                     aktualni.vlozVec(vec);
                 }
             }
+            plan.notifyObservers();
             zkoumana.prozkoumano(true);
             return zkoumana.popisProzkoumej();
         }  

@@ -10,7 +10,7 @@ import utils.Observer;
  * Umožňuje manipulaci s věcmi.
  *
  * @author    Veronika Hniličková
- * @version   LS 2015/2016, květen
+ * @version   ZS 2017/2018
  */
 public class Kapsa
 {
@@ -21,7 +21,7 @@ public class Kapsa
     //== Konstruktory a tovární metody =============================================
 
     /***************************************************************************
-     *  Konstruktor.
+     *  Konstruktor. Vytváří kapsu věcí jako seznam.
      */
     public Kapsa()
     {
@@ -37,6 +37,14 @@ public class Kapsa
      */     
     public Vec getVec(String nazev) {
         return veci.get(nazev);
+    }
+ 
+     /*
+     *  Vrací seznam věcí z kapsy.
+     */
+    public Map <String, Vec> vratKapsu()
+    {
+        return this.veci;
     }
 
     /**
