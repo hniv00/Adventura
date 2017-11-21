@@ -18,6 +18,8 @@ import utils.Observer;
 /**
  *
  * @author hniv00
+ * @version ZS 2017/2018
+ * 
  */
 public class Mapa extends AnchorPane implements Observer {
 

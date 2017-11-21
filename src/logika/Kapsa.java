@@ -11,6 +11,7 @@ import utils.Observer;
  *
  * @author    Veronika Hniličková
  * @version   ZS 2017/2018
+ * 
  */
 public class Kapsa
 {

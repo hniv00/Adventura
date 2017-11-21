@@ -2,8 +2,9 @@ package logika;
 /**
  *  Příkaz zahoď vykoná zahození věci z kapsy hráče do aktuálního prostoru.
  *
- *@author     Veronika Hniličková
- *@version    LS 2015/2016, květen
+ * @author hniv00
+ * @version ZS 2017/2018
+ * 
  */
 public class PrikazZahod implements IPrikaz
 {

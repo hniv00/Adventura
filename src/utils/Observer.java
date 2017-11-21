@@ -6,11 +6,10 @@
 package utils;
 
 /**
- *
- * @author hniv00
- * 
  * Interface. Aktualizace observeru.
  * 
+ * @author hniv00
+ * @version ZS 2017/2018
  */
 public interface Observer {
     

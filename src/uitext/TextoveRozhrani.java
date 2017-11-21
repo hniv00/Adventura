@@ -9,11 +9,9 @@ import java.io.*;
  *  Toto je uživatelského rozhraní aplikace Adventura
  *  Tato třída vytváří instanci třídy Hra, která představuje logiku aplikace.
  *  Čte vstup zadaný uživatelem a předává tento řetězec logice a vypisuje odpověď logiky na konzoli.
- *  
- *  
  *
- *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- *@version    pro školní rok 2015/2016
+ * @author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
+ * @version ZS 2017/2018
  */
 
 public class TextoveRozhrani {

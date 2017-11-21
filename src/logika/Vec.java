@@ -4,8 +4,8 @@ package logika;
 
 import java.util.*;
 /*******************************************************************************
- * @author    Veronika Hniličková
- * @version   LS 2017/2018
+ * @author hniv00
+ * @version ZS 2017/2018
  */
 public class Vec
 {

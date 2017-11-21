@@ -9,6 +9,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -26,20 +27,20 @@ import utils.Observer;
  * 
  */
 
-public class PanelBatohu implements Observer{
+public class PanelVeci implements Observer{
     
     private HerniPlan plan;
     ListView<Object> list;
     ObservableList<Object> data;
-    
     private TextArea centralText;
 
     /*
-    * Konstruktor pro panel kapsy.
+    * Konstruktor pro panel věcí.
     */
-    public PanelBatohu(HerniPlan plan,TextArea text) {
+    public PanelVeci(HerniPlan plan, TextArea text) {
        this.plan = plan;
        plan.registerObserver(this);
+       
        centralText = text;
         init();
     }
@@ -54,7 +55,7 @@ public class PanelBatohu implements Observer{
         list.setPrefWidth(200);
         
         /*
-        * Když se double-klikne na věc v batohu, provede se příkaz zahoď.
+        * Když se double-klikne na věc v panelu věcí, tak se provede příkaz seber.
         */
         list.setOnMouseClicked(new EventHandler<MouseEvent>() 
         {
@@ -66,7 +67,7 @@ public class PanelBatohu implements Observer{
                     int index = list.getSelectionModel().getSelectedIndex();
                     
                     Map<String, Vec> seznam;
-                    seznam = plan.getKapsa().vratKapsu();
+                    seznam = plan.getAktualniProstor().getVeci();
                     
                     String nazev = "";
                     int pomocna = 0;
@@ -79,8 +80,8 @@ public class PanelBatohu implements Observer{
                        pomocna++;
                     }
                     
-                    String vstupniPrikaz = "zahoď "+nazev;
-                    String odpovedHry = plan.getHra().zpracujPrikaz("zahoď "+nazev);
+                    String vstupniPrikaz = "seber "+nazev;
+                    String odpovedHry = plan.getHra().zpracujPrikaz("seber "+nazev);
 
                 
                     centralText.appendText("\n" + vstupniPrikaz + "\n");
@@ -90,6 +91,7 @@ public class PanelBatohu implements Observer{
                 }
             }
         });
+        
         
         
         
@@ -104,13 +106,13 @@ public class PanelBatohu implements Observer{
     }
     
     /*
-    * Metoda aktualizuje list věcí v kapse. Zobrazuje obrázky věcí, které má hráč u sebe.
+    * Metoda aktualizuje list věcí v prostoru. Zobrazuje obrázky věcí, které se nachází v aktuálním prostoru.
     */
     @Override 
     public void update() 
     {        
         Map<String, Vec> seznam;
-        seznam = plan.getKapsa().vratKapsu();
+        seznam = plan.getAktualniProstor().getVeci();
         data.clear();
         for (String x : seznam.keySet()) 
         {
@@ -129,7 +131,4 @@ public class PanelBatohu implements Observer{
         plan.registerObserver(this);
         this.update();
     }
-
-
-
 }

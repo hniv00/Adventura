@@ -4,10 +4,11 @@ package logika;
  *  Třída implementující toto rozhraní bude ve hře zpracovávat jeden konkrétní příkaz.
  *  Toto rozhraní je součástí jednoduché textové hry.
  *  
- *@author     Jarmila Pavlickova
- *@version    LS 2015/2016, květen
+ * @author     Jarmila Pavlickova
+ * @version ZS 2017/2018
  *  
  */
+
 interface IPrikaz {
 	
 	/**

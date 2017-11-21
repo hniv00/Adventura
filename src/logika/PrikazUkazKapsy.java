@@ -3,8 +3,9 @@ package logika;
 /**
  * Metoda PrikazUkazKapsy ukáže hráči, co všechno má schované po kapsách.
  * 
- * @author  Veronika Hniličková 
- * @version LS 2015/2016, květen
+ * @author hniv00
+ * @version ZS 2017/2018
+ * 
  */
 public class PrikazUkazKapsy implements IPrikaz {
     private static final String NAZEV = "ukaž_kapsy";

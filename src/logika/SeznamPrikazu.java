@@ -12,9 +12,10 @@ import java.util.Map;
  *
  *  Tato třída je součástí jednoduché textové hry.
  *
- *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- *@version    LS 2015/2016, květen
+ * @author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
+ * @version ZS 2017/2018
  */
+
 class SeznamPrikazu {
     // mapa pro uložení přípustných příkazů
     private  Map<String,IPrikaz> mapaSPrikazy;

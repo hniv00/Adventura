@@ -19,8 +19,9 @@ import java.util.HashMap;
  * si prostor ukládá odkaz na sousedící prostor.
  *
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- * @version LS 2017/2018
+ * @version ZS 2017/2018
  */
+
 public class Prostor {
 
     private String nazev;
@@ -337,5 +338,19 @@ public class Prostor {
         }
         return vysledek;
     }
+    
+     public String seznamVychodu() 
+    {
+        String vracenyText = "vychody:";
+        for (Prostor sousedni : vychody) {
+             vracenyText += " " + sousedni.getNazev();
+        }
+        return vracenyText;
+    }
+     
+     public Map<String,Vec> getVeci()
+     {
+         return this.veci;
+     }
 
 }

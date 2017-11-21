@@ -4,9 +4,11 @@ import java.util.*;
 /**
  * Instance třídy postava představují postavy, které se vyskytují ve hře.
  * 
- * @author Veronika Hniličková 
- * @version LS 2015/2016, květen
+ * @author hniv00
+ * @version ZS 2017/2018
+ * 
  */
+
 public class Postava
 {
     private String jmeno;
@@ -16,6 +18,9 @@ public class Postava
     private boolean ochocena;
     private Map<String, Postava> seznamPostav;
 
+    /***************************************************************************
+     *  Konstruktor pro postavu.
+     */
     public Postava(String jmeno, String proslov1, String proslov2, String proslov3, boolean ochocena)
     {
         this.jmeno = jmeno;

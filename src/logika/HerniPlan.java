@@ -12,9 +12,11 @@ import utils.Subject;
  *  propojuje je vzájemně pomocí východů 
  *  a pamatuje si aktuální prostor, ve kterém se hráč právě nachází.
  *
- *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- *@version    ZS 2017/2018
+ * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
+ * @version ZS 2017/2018
+ * 
  */
+
 public class HerniPlan implements Subject{
     private static final String VITEZNY = "poklop";
     //konstanta pro vítězný prostor
@@ -25,6 +27,7 @@ public class HerniPlan implements Subject{
     private Postava pes;
     private Prostor poklop;
     private Prostor vezeni;
+    private Hra hra;
     
     private List<Observer> listObserveru = new ArrayList<Observer>();
 
@@ -32,9 +35,10 @@ public class HerniPlan implements Subject{
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví temnou místnost.
      */
-    public HerniPlan() {
+    public HerniPlan( Hra hra) {
         zalozProstoryHry();
         kapsa = new Kapsa();
+        this.hra = hra;
     }
 
     /**
@@ -212,6 +216,11 @@ public class HerniPlan implements Subject{
         if(kapsa.obsahujeVec("šaškova_čepice")){
             vezeni.setVychod(poklop);
         }
+    }
+    
+        
+    public Hra getHra(){
+        return this.hra;
     }
 
     

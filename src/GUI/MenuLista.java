@@ -24,6 +24,8 @@ import main.Main;
 /**
  *
  * @author hniv00
+ * @version ZS 2017/2018
+ * 
  */
 public class MenuLista extends MenuBar{
     

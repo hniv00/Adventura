@@ -8,8 +8,8 @@ package logika;
  *  Vypisuje uvítací a ukončovací text hry.
  *  Také vyhodnocuje jednotlivé příkazy zadané uživatelem.
  *
- *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
- *@version    LS 2015/2016, květen
+ * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Veronika Hniličková
+ * @version ZS 2017/2018
  */
 
 public class Hra implements IHra {
@@ -22,7 +22,7 @@ public class Hra implements IHra {
      *  Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
      */
     public Hra() {
-        herniPlan = new HerniPlan();
+        herniPlan = new HerniPlan(this);
         kapsa = herniPlan.getKapsa();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
@@ -116,6 +116,7 @@ public class Hra implements IHra {
     public HerniPlan getHerniPlan(){
         return herniPlan;
     }
+
 
 }
 
