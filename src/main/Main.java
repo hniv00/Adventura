@@ -13,8 +13,10 @@ import GUI.PanelVychodu;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -48,8 +50,7 @@ public class Main extends Application{
     private MenuLista menuLista;
     private PanelBatohu panelBatohu;
     private PanelVychodu panelVychodu;
-    private PanelVeci panelVeci;
-    
+    private PanelVeci panelVeci;  
     private Stage stage;
     
     /*
@@ -70,12 +71,19 @@ public class Main extends Application{
         
         mapa = new Mapa(hra);
         menuLista = new MenuLista(hra, this);
-        // Hlavní borderPane
+        // Hlavní borderPane + spodní odsazení
         BorderPane borderPane = new BorderPane();
-        // Borderpane pro východy a věci v místnosti
+        borderPane.setPadding(new Insets(0, 0, 10, 0));
+        // Borderpane pro východy a věci v místnosti + odsazení + nadpis
         BorderPane borderPane2 = new BorderPane();
-        // Borderpane pro věci v kapse a mapu
+        borderPane2.setPadding(new Insets(10, 10, 10, 10));
+        Label header2 = new Label("Věci nacházející se v prostoru a seznam východů: ");
+        borderPane2.setTop(header2);
+        // Borderpane pro věci v kapse a mapu + nadpis
         BorderPane borderPane3 = new BorderPane();
+        borderPane3.setPadding(new Insets(10, 10, 10, 10));
+        Label header3 = new Label("Věci v kapsách: ");
+        borderPane3.setLeft(header3);
         
         // Text s průbehem hry
         centralText = new TextArea();
@@ -136,7 +144,7 @@ public class Main extends Application{
         borderPane.setRight(borderPane2);
         // panel kapsy
         panelBatohu = new PanelBatohu(hra.getHerniPlan(),centralText);
-        borderPane3.setLeft(panelBatohu.getList());
+        borderPane3.setCenter(panelBatohu.getList());
         // panel s mapou
         borderPane3.setTop(mapa);
         borderPane.setLeft(borderPane3);
